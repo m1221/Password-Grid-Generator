@@ -30,6 +30,17 @@
     padding: 5px;
 }
 
+.grid-row{
+    display: flex;
+}
+
+.grid-box{
+    width: 20%;
+    height: 15vh;
+    min-width: 40px;
+    min-height: 40px;
+    border: 1px solid black;
+}
 
 @media (min-device-width: 1000px){
     .col-10{
