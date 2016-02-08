@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <title>Password Grid Generator</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-40"><h1>Password Grid Generator</h1></div>
+        <div class="col-40"><img src="#" alt="oops, image failed to load"/></div>
+    </div>
+    
+    <div class="row">
+        <div class="col-50">
+        <p id="instructions">
+        
+        </p>
+        <ol>
+            <li>Choose a 4-digit PIN number and memorize it.</li>
+            <li>Choose a shape OR a passphrase and memorize it.
+                <ul>
+                    <li>Choose a shape by looking at the grid and
+                        drawing a shape in your mind.
+                    </li>
+                    <li>Choose a passphrase by choosing any phrase
+                        that comes to mind. The characters of this
+                        phrase must be letters a-Z (cap sensitive).
+                    </li>
+                </ul>
+            </li>
+            <li>Click on the "Generate Grid" button.</li>
+            <li>Click on the "Print Grid" button.
+                <ul>
+                    <li>Print the grid into the file format of your choice. </li>
+                    <li>Depending on your layout, this can be physical paper,
+                    a PDF, an XPS document, a jpeg(see Universal Document Converter), etc.</li>
+                </ul>
+            </li>
+        </ol>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-40">
+            <div class="button" id="genButton">Generate Grid</div>
+            <div class="button" id="printButton">Print Grid</div>
+            <form></form>
+        </div>
+        <div class="col-50"><div id="grid"></div></div>
+    </div>
+    <!--
+    <iframe name="print_frame" width="0" height="0" src="about: blank"></iframe>
+    -->
+    <script src="app.js"></script>
+</body>
+</html>
