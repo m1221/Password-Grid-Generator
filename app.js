@@ -24,11 +24,19 @@
      */
     function generateCharacters(characters){
         var array = [],
+            numCols = 5,
+            numRows = 2,
+            temp,
             nonce;
-        for (var i = 0; i < 10; i++){
-            nonce = characters[Math.round(Math.random()*(characters.length-1))];
-            array.push(nonce);
+        for (var i = 0; i < numRows; i++){
+            temp = "";
+            for (var k = 0; k < numCols; k++){
+                nonce = characters[Math.round(Math.random()*(characters.length-1))];
+                temp += (nonce + " ");
+            }
+            array.push(temp);
         }
+        console.log(array);
         return array;
     }
     
@@ -43,6 +51,10 @@
     function addToGrid(grid){
         var display = document.getElementById("grid");
         
+        while (display.firstChild){
+            display.removeChild(display.firstChild);
+        }
+        
         var row = document.createElement("div");
             row.setAttribute("class", "grid-row");
             
@@ -54,11 +66,13 @@
 
         gridChar.forEach(function(key){
             if (colCount < squareRoot){
-                content = "<span class='box-title'>" + key;
-                content += "</span> <div class='box-row'>";
-                content += grid[key].slice(0,5) + "</div>";
-                content += "<div class='box-row'>";
-                content += grid[key].slice(5,10) + "</div>";
+                content = "<span class='box-title'>" + key + "</span>";
+                
+                grid[key].forEach(function(elem){
+                    content += "<div class='box-row'>";
+                    content += elem + "</div>";
+                    
+                });
                 
                 box = document.createElement("div");
                 box.setAttribute("class", "grid-box");
