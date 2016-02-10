@@ -10,6 +10,9 @@
     //wut
     // charOptions does not have a length property
     // but querySelector("form") does
+    var display;
+    var displayOuter = document.getElementById("outer-grid");
+    var displayCSS = new String("<link href='style.css' rel='stylesheet' type='text/css'>");
     var gridChar = ["A","B","C","D","E","F","G","H","I/J","K","L","M",
                    "N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
         
@@ -36,7 +39,6 @@
             }
             array.push(temp);
         }
-        console.log(array);
         return array;
     }
     
@@ -48,8 +50,24 @@
             }
         }
     }
+    
+    
     function addToGrid(grid){
-        var display = document.getElementById("grid");
+        function makeBox(key){
+            content = "<span class='box-title'>" + key + "</span>";
+        
+            grid[key].forEach(function(elem){
+                content += "<div class='box-row'>";
+                content += elem + "</div>"; 
+            });
+        
+            box = document.createElement("div");
+            box.setAttribute("class", "grid-box");
+            box.innerHTML = content;
+            row.appendChild(box);
+        }
+    
+        display = document.getElementById("grid");
         
         while (display.firstChild){
             display.removeChild(display.firstChild);
@@ -62,24 +80,13 @@
         
         var squareRoot = Math.floor(Math.sqrt(gridChar.length));
         var colCount = 0;
-        
 
         gridChar.forEach(function(key){
-            if (colCount < squareRoot){
-                content = "<span class='box-title'>" + key + "</span>";
-                
-                grid[key].forEach(function(elem){
-                    content += "<div class='box-row'>";
-                    content += elem + "</div>";
-                    
-                });
-                
-                box = document.createElement("div");
-                box.setAttribute("class", "grid-box");
-                box.innerHTML = content;
-                row.appendChild(box);
+            if (colCount < squareRoot -1){
+                makeBox(key, grid);
                 colCount ++;
             } else {
+                makeBox(key);
                 display.appendChild(row);
                 row = document.createElement("div");
                 row.setAttribute("class", "grid-row");
@@ -126,7 +133,15 @@
         addToGrid(grid);
     }
     
-    function printGrid(){}
+    function printGrid(){
+        window.frames["print_frame"].document.body.innerHTML = displayCSS + displayOuter.innerHTML;
+        // call stack trick to make sure print_frame gets styled in time.
+        window.setTimeout(function(){
+            window.frames["print_frame"].window.focus();
+            window.frames["print_frame"].window.print();
+        },50);
+        
+    }
     
     /*
      *
