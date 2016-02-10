@@ -11,6 +11,10 @@
     width: 20%;
 }
 
+.col-30{
+    width: 30%;
+}
+
 .col-40{
     width: 40%;
 }
@@ -19,15 +23,36 @@
     width: 50%;
 }
 
+.col-70{
+    width: 70%;
+}
+
 .col-80{
     width: 80%;
+}
+
+.col-100{
+    width: 100%;
 }
 
 .button{
     cursor: pointer;
     border: 1px solid black;
+    border-radius: 5px;
     display: inline;
-    padding: 5px;
+    padding: 8px;
+    color: #DADDE7;
+    margin-right: 10px;
+}
+
+#genButton{
+    background: #24A21C;
+    border: 1px solid #24A21C;
+}
+
+#printButton{
+    background: #2048B9;
+    border: 1px solid #2048B9;
 }
 
 .grid-row{
@@ -38,8 +63,37 @@
     width: 20%;
     height: 15vh;
     min-width: 40px;
-    min-height: 40px;
+    min-height: 80px;
     border: 1px solid black;
+    text-align: center;
+}
+
+.box-title{
+    font-size: 20px;
+}
+
+.pic{
+    height: 200px;
+    width: 300px;
+}
+
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+form{
+    margin: 25px;
+}
+
+iframe{
+    visibility: hidden;
+}
+
+body{
+    margin: auto;
+    width: 50%;
 }
 
 @media (min-device-width: 1000px){
@@ -50,17 +104,25 @@
     .col-20{
         min-width: 200px;
     }
+    
+    .col-30{
+        min-width: 300px;
+    }
 
     .col-40{
-        min-width: 400px;
+        min-width: 300px;
     }
 
     .col-50{
-        min-width: 500px;
+        min-width: 300px;
+    }
+    
+    .col-70{
+        min-width: 400px;
     }
 
     .col-80{
-        min-width: 800px;
+        min-width: 400px;
     }
 }
 

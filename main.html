@@ -7,51 +7,62 @@
 </head>
 <body>
     <div class="row">
-        <div class="col-40"><h1>Password Grid Generator</h1></div>
-        <div class="col-40"><img src="#" alt="oops, image failed to load"/></div>
-    </div>
-    
-    <div class="row">
+        <div class="col-50"><h1>Password Grid Generator</h1></div>
         <div class="col-50">
-        <p id="instructions">
-        
-        </p>
-        <ol>
-            <li>Choose a 4-digit PIN number and memorize it.</li>
-            <li>Choose a shape OR a passphrase and memorize it.
-                <ul>
-                    <li>Choose a shape by looking at the grid and
-                        drawing a shape in your mind.
-                    </li>
-                    <li>Choose a passphrase by choosing any phrase
-                        that comes to mind. The characters of this
-                        phrase must be letters a-Z (cap sensitive).
-                    </li>
-                </ul>
-            </li>
-            <li>Click on the "Generate Grid" button.</li>
-            <li>Click on the "Print Grid" button.
-                <ul>
-                    <li>Print the grid into the file format of your choice. </li>
-                    <li>Depending on your layout, this can be physical paper,
-                    a PDF, an XPS document, a jpeg(see Universal Document Converter), etc.</li>
-                </ul>
-            </li>
-        </ol>
+            <div class="pic">
+            <img src="jefferson_disk.jpg" alt="oops, image failed to load"/>
+            </div>
         </div>
     </div>
     
     <div class="row">
-        <div class="col-20">
+        <div class="col-100">
+        <h3>About:</h2>
+        <p id="instructions">
+            This "Password Grid Generator" is nothing but a tool to help users
+             maintain secure (read complex) passwords without having to remember 
+             them. As with all tools, the effectiveness of this tool depends on 
+             how the user handles it. Below two methods for using the grid are
+             detailed. These methods are merely suggestions. Please feel free to 
+             mix and match. The posiblities are endless!
+        </p>
+        <h3>Suggested Methods:</h3>
+        <ul>
+            <li>Method 1</li>
+                <ol>
+                    <li>Choose a simple passphrase (such as 'doggyName')</li>
+                    <li>Choose a number 1-10.</li>
+                    <li>Find the first letter of the passphrase in the grid.</li>
+                    <li>Select the character at the n-th position in the sequence
+                        of characters located below the letter. This is the first
+                        letter of the password.</li>
+                    <li>Repeat for the other letters of the passphrase</li>
+                </ol>
+            
+            <li>Method 2</li>
+                <ol>
+                    <li>Choose a shape by looking at the grid and
+                        drawing a shape in your mind.
+                    </li>
+                    <li>Follow steps 2-5 in Method 1.</li>
+                </ol>
+        </ul>
+        </div>
+    </div>
+    <div class="row">
+        <h3>Make a grid:</h3>
+    </div>
+    <div class="row" style="margin-top: 10px">
+        <div class="col-100">
             <div class="button" id="genButton">Generate Grid</div>
             <div class="button" id="printButton">Print Grid</div>
             <form></form>
         </div>
-        <div class="col-50"><div id="grid"></div></div>
     </div>
-    <!--
+    <div class="row">
+        <div class="col-100" id="outer-grid"><div id="grid"></div></div>
+    </div>
     <iframe name="print_frame" width="0" height="0" src="about: blank"></iframe>
-    -->
     <script src="app.js"></script>
 </body>
 </html>

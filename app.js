@@ -51,7 +51,6 @@
         }
     }
     
-    
     function addToGrid(grid){
         function makeBox(key){
             content = "<span class='box-title'>" + key + "</span>";
