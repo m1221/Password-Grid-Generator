@@ -111,6 +111,13 @@ ol{
     font-size: 20px;
 }
 
+@media print{
+    .grid-box{
+        width: 10%;
+        height: 7vh;
+    }
+}
+
 @media (min-device-width: 1000px){
     .pic{
         margin: 0;

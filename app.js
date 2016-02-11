@@ -1,18 +1,12 @@
-/*  TODO
- * DONE 1. finish makeRadioButtons function by making it append html input buttons
- * DONE 2. make basic generateCharacters. it should generate an array 10 elements long
- * DONE 3. make generate grid add the actual divs to the html page
- * 4. style the boxes
- * 5. make generateGrid button remove previous grids
- */
-
 (function(){
-    //wut
-    // charOptions does not have a length property
-    // but querySelector("form") does
+    // Set up variables
     var display;
+    // displayOuter and displayCSS are used for the print functionality
     var displayOuter = document.getElementById("outer-grid");
     var displayCSS = new String("<link href='style.css' rel='stylesheet' type='text/css'>");
+    /* gridChar is an array containing the 'primary' characters
+     * of the grid. the grid is 5x5
+     */
     var gridChar = ["A","B","C","D","E","F","G","H","I/J","K","L","M",
                    "N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
         
@@ -22,10 +16,14 @@
         "Standard + Number + Special": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()-_"
     };
     
-    /* Helper Functions
-     *
-     */
+    // Set up helper Functions
     function generateCharacters(characters){
+        /* generateCharacters is called in generateGrid().
+         * It takes a single parameter 'characters' (a string value)
+         * comprising the possible string values to will be produced
+         * and from them generates sequences of randomly created 
+         * string values and returns those values in an array
+         */
         var array = [],
             numCols = 5,
             numRows = 2,
@@ -43,6 +41,11 @@
     }
     
     function checkSelection(){
+        /* checkSelection checks which bubble was selected
+         * at the time the user clicks on "Generate Grid"
+         * and returns the name of that bubble. This name
+         * should correspond to one of the keys in charOptions.
+         */
         var form = document.querySelector("form");
         for (var i = 0; i < form.length; i++){
             if (form[i].checked == true){
@@ -52,6 +55,10 @@
     }
     
     function addToGrid(grid){
+        /* addToGrid is called in generateGrid. It is the 'workhorse' of
+         * the function.
+         */
+         
         function makeBox(key){
             content = "<span class='box-title'>" + key + "</span>";
         
@@ -66,27 +73,35 @@
             row.appendChild(box);
         }
     
+    
+        // if there is a previous grid, remove it
         display = document.getElementById("grid");
         
         while (display.firstChild){
             display.removeChild(display.firstChild);
         }
         
+        
+        // set up variables to be used during grid construction
+        var box, content,
+        squareRoot = Math.floor(Math.sqrt(gridChar.length)),
+        colCount = 0;
+        
+        // create the first row if the grid
         var row = document.createElement("div");
             row.setAttribute("class", "grid-row");
             
-        var box, content;
-        
-        var squareRoot = Math.floor(Math.sqrt(gridChar.length));
-        var colCount = 0;
-
+        // iterate through each box-to-be in the grid and make each one
         gridChar.forEach(function(key){
+            // if this condition is true, keep working on the same row
             if (colCount < squareRoot -1){
                 makeBox(key, grid);
                 colCount ++;
             } else {
                 makeBox(key);
                 display.appendChild(row);
+                
+                // create subsequent rows of the grid
                 row = document.createElement("div");
                 row.setAttribute("class", "grid-row");
                 colCount = 0;
@@ -94,11 +109,12 @@
         });
     }
     
-    /* Main Functions
-     *
-     */
+    // Main Functions
      
     function makeRadioButtons(){
+        /* makeRadioButtons generates the radio buttons to be used
+         * by the user from the charOptions object
+         */
         var form = document.querySelector("form"),
             radio,
             radioText = document.createElement("span");
@@ -122,6 +138,9 @@
     }
     
     function generateGrid(){
+        /* generateGrid is called when a user clicks on the "Generate Grid"
+         * button. It creates a 5x5 grid on the HTML page.
+         */
         var characters = charOptions[checkSelection()];
         
         var grid = {};
@@ -133,6 +152,10 @@
     }
     
     function printGrid(){
+        /* printGrid is called when a user clicks on the "Print Grid"
+         * button. it opens a print options for the user. Only the grid
+         * will be printed.
+         */
         window.frames["print_frame"].document.body.innerHTML = displayCSS + displayOuter.innerHTML;
         // call stack trick to make sure print_frame gets styled in time.
         window.setTimeout(function(){
