@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="style.css" rel="stylesheet">
     <title>Password Grid Generator</title>
 </head>
@@ -52,12 +53,15 @@
     <div class="row">
         <h3>Make a grid:</h3>
     </div>
-    <div class="row" style="margin-top: 10px">
+    <div class="row" id="grid-buttons">
         <div class="col-100">
             <div class="button" id="genButton">Generate Grid</div>
             <div class="button" id="printButton">Print Grid</div>
-            <form></form>
+            
         </div>
+    </div>
+    <div class="row">
+        <form></form>
     </div>
     <div class="row">
         <div class="col-100" id="outer-grid"><div id="grid"></div></div>
