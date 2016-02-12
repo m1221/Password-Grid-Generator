@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-50"><h1>Password Grid Generator</h1></div>
         <div class="col-50">
-            <div class="pic">
+            <div id="disk-pic">
             <img src="jefferson_disk.jpg" alt="oops, image failed to load"/>
             </div>
         </div>
@@ -24,33 +24,43 @@
             This "Password Grid Generator" is nothing but a tool to help users
              maintain secure (read complex) passwords without having to remember 
              them. As with all tools, the effectiveness of this tool depends on 
-             how the user handles it. Below two methods for using the grid are
-             detailed. These methods are merely suggestions. Please feel free to 
+             how the user handles it. Below are two examples of possible uses for the
+             grid. These methods are merely suggestions. Please feel free to 
              mix and match. The posiblities are endless!
         </p>
-        <h3>Suggested Methods:</h3>
+        <h3>Examples:</h3>
         <ul>
-            <li>Method 1</li>
+            <li>Example 1</li>
                 <ol>
                     <li>Choose a simple passphrase (such as 'doggyName')</li>
-                    <li>Choose a number 1-10.</li>
+                    <li>Choose a passcode (such as '123')</li>
                     <li>Find the first letter of the passphrase in the grid.</li>
                     <li>Select the character at the n-th position in the sequence
-                        of characters located below the letter. This is the first
+                        of characters located below the letter, where n corresponds
+                        to the first digit of the pass code. This character is the first
                         letter of the password.</li>
-                    <li>Repeat for the other letters of the passphrase</li>
+                    <li>For the next letter of the password, select the next letter of the
+                        passphrase ('o' in this case) and the next digit of the pass code
+                        (2) in this case. Locate the 'o' box and the 2nd character of this box.
+                        This character is the second character of the password.</li>
+                    <li>Repeat for the other letters of the passphrase.</li>
+                    <li>Upon using the last digit of the passcode, if there are uncoded
+                        letters left in the passphrase, begin with the first digit of the
+                        passcode and continue as before.</li>
                 </ol>
-            
-            <li>Method 2</li>
+            <div id="grid-pic">
+                <img src="example.jpg" alt="oops, image unable to load"/>
+            </div>
+            <li>Example 2</li>
                 <ol>
                     <li>Choose a shape by looking at the grid and
                         drawing a shape in your mind.
                     </li>
-                    <li>Follow steps 2-5 in Method 1.</li>
+                    <li>Follow steps 2-7 in Method 1.</li>
                 </ol>
         </ul>
         </div>
-    </div>
+    </div>    
     <div class="row">
         <h3>Make a grid:</h3>
     </div>

@@ -86,7 +86,8 @@ form{
 }
 
 ul{
-    padding: 0px 5vw 5vh;
+    padding: 0px 5vw 0vh;
+    margin-bottom: 0;
 }
 
 ol{
@@ -119,10 +120,16 @@ ol{
 }
 
 @media (min-device-width: 1000px){
-    .pic{
+    #disk-pic{
         margin: 0;
         width: 250px;
         height: 150px;
+    }
+    
+    #grid-pic{
+        width: 90%;
+        height: 300px;
+        margin-bottom: 30px;
     }
     
     .grid-box{
